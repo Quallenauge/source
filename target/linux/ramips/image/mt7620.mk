@@ -431,6 +431,16 @@ define Device/dch-m225
 endef
 TARGET_DEVICES += dch-m225
 
+define Device/kn-lite-ii
+  DTS := KEENETIC_LITE_II
+  DEVICE_TITLE := ZyXEL Keenetic Lite II
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-usb-ledtrig-usbport
+  IMAGES += factory.bin
+  IMAGE/factory.bin := $$(IMAGE/sysupgrade.bin) | pad-to 64k | check-size $$$$(IMAGE_SIZE) | \
+	zyimage -d 0x1302 -v "ZyXEL Keenetic Lite II"
+endef
+TARGET_DEVICES += kn_rc
+
 define Device/kn_rc
   DTS := kn_rc
   DEVICE_TITLE := ZyXEL Keenetic Omni
