@@ -23,6 +23,7 @@ get_status_led() {
 	dch-m225|\
 	dir-860l-b1|\
 	e1700|\
+	ex3700|\
 	fonera20n|\
 	kn_rc|\
 	kn_rf|\
@@ -33,6 +34,7 @@ get_status_led() {
 	nbg-419n|\
 	nbg-419n2|\
 	pwh2004|\
+	r6220|\
 	vr500|\
 	wnce2001|\
 	wndr3700v5|\
@@ -88,6 +90,7 @@ get_status_led() {
 		status_led="$board:blue:wlan"
 		;;
 	atp-52b|\
+	ew1200|\
 	ip2202)
 		status_led="$board:green:run"
 		;;
@@ -140,11 +143,15 @@ get_status_led() {
 		status_led="$board:orange:status"
 		;;
 	hc5*61|\
+	hc5661a|\
 	jhr-n805r|\
 	jhr-n926r|\
 	mlw221|\
 	mlwg2)
 		status_led="$board:blue:system"
+		;;
+	hc5962)
+		status_led="$board:white:status"
 		;;
 	linkits7688| \
 	linkits7688d)
@@ -231,7 +238,8 @@ get_status_led() {
 		status_led="$board:amber:power"
 		;;
 	whr-g300n|\
-	wlr-6000)
+	wlr-6000|\
+	zbt-we2026)
 		status_led="$board:red:power"
 		;;
 	wzr-agl300nh)

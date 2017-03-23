@@ -37,6 +37,7 @@ enum ath79_mach_type {
 	ATH79_MACH_AP143,			/* Atheros AP143 reference board */
 	ATH79_MACH_AP147_010,			/* Atheros AP147-010 reference board */
 	ATH79_MACH_AP152,			/* Atheros AP152 reference board */
+	ATH79_MACH_AP531B0,			/* Rockeetech AP531B0 */
 	ATH79_MACH_AP90Q,			/* YunCore AP90Q */
 	ATH79_MACH_AP96,			/* Atheros AP96 */
 	ATH79_MACH_ARCHER_C5,			/* TP-LINK Archer C5 board */
@@ -177,6 +178,7 @@ enum ath79_mach_type {
 	ATH79_MACH_RB_951U,			/* Mikrotik RouterBOARD 951Ui-2HnD */
 	ATH79_MACH_RB_952,			/* MikroTik RouterBOARD 951Ui-2nD */
 	ATH79_MACH_RB_CAP,			/* Mikrotik RouterBOARD cAP2nD */
+	ATH79_MACH_RB_LHG5,			/* Mikrotik RouterBOARD LHG5 */
 	ATH79_MACH_RB_MAP,			/* Mikrotik RouterBOARD mAP2nD */
 	ATH79_MACH_RB_MAPL,			/* Mikrotik RouterBOARD mAP L-2nD */
 	ATH79_MACH_RB_WAP,			/* Mikrotik RouterBOARD wAP2nD */
@@ -237,6 +239,7 @@ enum ath79_mach_type {
 	ATH79_MACH_TL_WR741ND,			/* TP-LINK TL-WR741ND */
 	ATH79_MACH_TL_WR741ND_V4,		/* TP-LINK TL-WR741ND v4 */
 	ATH79_MACH_TL_WR802N_V1,		/* TP-LINK TL-WR802N v1 */
+	ATH79_MACH_TL_WR802N_V2,		/* TP-LINK TL-WR802N v2 */
 	ATH79_MACH_TL_WR810N,			/* TP-LINK TL-WR810N */
 	ATH79_MACH_TL_WR841N_V1,		/* TP-LINK TL-WR841N v1 */
 	ATH79_MACH_TL_WR841N_V11,		/* TP-LINK TL-WR841N/ND v11 */

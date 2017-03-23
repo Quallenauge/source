@@ -11,6 +11,13 @@ define Device/mt7628
 endef
 TARGET_DEVICES += mt7628
 
+define Device/hc5661a
+  DTS := HC5661A
+  IMAGE_SIZE := $(ralink_default_fw_size_16M)
+  DEVICE_TITLE := HiWiFi HC5661A
+endef
+TARGET_DEVICES += hc5661a
+
 define Device/miwifi-nano
   DTS := MIWIFI-NANO
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
@@ -24,7 +31,7 @@ define Device/vocore2
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := VoCore VoCore2
   DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-usb-ledtrig-usbport \
-    kmod-sdhci kmod-sdhci-mt7620
+    kmod-sdhci-mt7620
 endef
 TARGET_DEVICES += vocore2
 

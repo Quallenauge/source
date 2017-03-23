@@ -259,7 +259,6 @@ int rtl8366_smi_read_reg(struct rtl8366_smi *smi, u32 addr, u32 *data)
 		*data = ((u32) lo) | (((u32) hi) << 8);
 
 		ret = 0;
-
 out:
 		rtl8366_smi_stop(smi);
 	}

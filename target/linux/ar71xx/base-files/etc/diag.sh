@@ -26,10 +26,12 @@ get_status_led() {
 	minibox-v1|\
 	som9331|\
 	sr3200|\
+	tl-wr802n-v2|\
 	xd3200)
 		status_led="$board:green:system"
 		;;
 	ap132|\
+	ap531b0|\
 	db120|\
 	dr344|\
 	tew-632brp|\
@@ -60,7 +62,9 @@ get_status_led() {
 	ap90q|\
 	cpe830|\
 	cpe870|\
-	gl-inet)
+	gl-inet|\
+	gl-mifi|\
+	gl-ar300m)
 		status_led="$board:green:lan"
 		;;
 	ap96)
@@ -302,6 +306,7 @@ get_status_led() {
 	rb-912uag-5hpnd|\
 	rb-941-2nd|\
 	rb-951ui-2nd|\
+	rb-lhg-5nd|\
 	rb-mapl-2nd)
 		status_led="rb:green:user"
 		;;

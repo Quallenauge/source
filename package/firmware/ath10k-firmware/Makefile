@@ -8,9 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ath10k-firmware
-PKG_SOURCE_DATE:=2017-01-11
-PKG_SOURCE_VERSION:=ab432c60437931a165f0aff1a6e3371f358b75dd
-PKG_MIRROR_HASH:=e3188ecd4d7470d3cdde89fefa6258f9ec4f404b23558d1474e5014679b28101
+PKG_SOURCE_DATE:=2017-03-13
+PKG_SOURCE_VERSION:=2209b0f8d41aef3435c7238b9eb99de7ed36fd5a
+PKG_MIRROR_HASH:=884e4678f6b6b5d8b367a90769784ef6449d6774b749104d7a20552b5601b041
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
@@ -186,6 +186,13 @@ $(Package/ath10k-firmware-default)
   CATEGORY:=Firmware
 endef
 
+define Package/ath10k-firmware-qca4019
+$(Package/ath10k-firmware-default)
+  TITLE:=ath10k firmware for IPQ/QCA4019 devices
+  SECTION:=firmware
+  CATEGORY:=Firmware
+endef
+
 define Package/ath10k-firmware-qca6174
 $(Package/ath10k-firmware-default)
   TITLE:=ath10k firmware for QCA6174 devices
@@ -207,8 +214,8 @@ $(eval $(call Download,qca99x0-board))
 QCA9984_BOARD_REV:=719c0127e52bd70559e71b85ab0331790e1bf66c
 QCA9984_BOARD_FILE:=board-2.bin
 QCA9984_BOARD_FILE_DL:=$(QCA9984_BOARD_FILE).$(QCA9984_BOARD_REV)
-QCA9984_FIRMWARE_REV:=d43cb1188154037506e94abf3aa456cc934c6861
-QCA9984_FIRMWARE_FILE:=firmware-5.bin_10.4-3.4-00072
+QCA9984_FIRMWARE_REV:=7090001487d567ca1bef3ec26d1299a6e90fd1ad
+QCA9984_FIRMWARE_FILE:=firmware-5.bin_10.4-3.4-00074
 QCA9984_FIRMWARE_FILE_DL:=$(QCA9984_FIRMWARE_FILE).$(QCA9984_FIRMWARE_REV)
 
 define Download/ath10k-qca9984-board
@@ -223,12 +230,22 @@ define Download/ath10k-qca9984-firmware
   URL:=https://source.codeaurora.org/quic/qsdk/oss/firmware/ath10k-firmware/plain/ath10k/QCA9984/hw1.0/
   URL_FILE:=$(QCA9984_FIRMWARE_FILE)?id=$(QCA9984_FIRMWARE_REV)
   FILE:=$(QCA9984_FIRMWARE_FILE_DL)
-  HASH:=28d5834e8c4ca8fcef9ea033cd8b9b0f9ee84ecf30dbde84c9c64bf8dd9912bc
+  HASH:=368119af56a851bb26f6f4f9cd0e90488cb67de3fe68133ccc061b825618c0ee
 endef
 $(eval $(call Download,ath10k-qca9984-firmware))
 
 define Build/Compile
 
+endef
+
+define Package/ath10k-firmware-qca4019/install
+	$(INSTALL_DIR) $(1)/lib/firmware/ath10k/QCA4019/hw1.0
+	$(INSTALL_DATA) \
+		$(PKG_BUILD_DIR)/QCA4019/hw1.0/board-2.bin \
+		$(1)/lib/firmware/ath10k/QCA4019/hw1.0/
+	$(INSTALL_DATA) \
+		$(PKG_BUILD_DIR)/QCA4019/hw1.0/3.2.1/firmware-5.bin_10.4-3.2.1-00053 \
+		$(1)/lib/firmware/ath10k/QCA4019/hw1.0/firmware-5.bin
 endef
 
 define Package/ath10k-firmware-qca9887/install
@@ -333,6 +350,7 @@ $(eval $(call BuildPackage,ath10k-firmware-qca988x))
 $(eval $(call BuildPackage,ath10k-firmware-qca99x0))
 $(eval $(call BuildPackage,ath10k-firmware-qca6174))
 $(eval $(call BuildPackage,ath10k-firmware-qca9984))
+$(eval $(call BuildPackage,ath10k-firmware-qca4019))
 
 $(eval $(call BuildPackage,ath10k-firmware-qca9887-ct))
 $(eval $(call BuildPackage,ath10k-firmware-qca988x-ct))
